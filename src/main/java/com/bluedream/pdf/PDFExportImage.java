@@ -1,4 +1,4 @@
-package com.haber.pdf;
+package com.bluedream.pdf;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.ImageType;
@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class PDFExportImage {
 
-
+/*
     private static final List excludePage = Arrays.asList(0);
     private static final boolean isCut = true;
 
@@ -98,12 +98,12 @@ public class PDFExportImage {
         }
     }
 
-    /**
+    *//**
      *
      * @Description:图片拼接 （注意：必须两张图片长宽一致哦）
      * @param type   1 横向拼接， 2 纵向拼接
      * @return
-     */
+     *//*
     public static void mergeImage(String[] files, int type, String targetFile) {
         int len = files.length;
         if (len < 1) {
@@ -181,5 +181,5 @@ public class PDFExportImage {
 //        BufferedImage bi = ImageIO.read(new File("/Users/haber/Downloads/test.jpg"));
 //        cut(bi, outDir + "/test-1.jpg",0 , 0, bi.getWidth()/2, bi.getHeight());
 //        cut(bi, outDir + "/test-2.jpg",bi.getWidth()/2 , 0, bi.getWidth()/2, bi.getHeight());
-    }
+    }*/
 }

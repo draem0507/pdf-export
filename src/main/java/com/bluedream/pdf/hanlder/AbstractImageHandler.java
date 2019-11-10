@@ -2,11 +2,11 @@ package com.bluedream.pdf.hanlder;
 
 import com.bluedream.pdf.exception.ImageArgsException;
 import com.bluedream.pdf.hanlder.merge.MergeImageEngine;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -24,7 +24,7 @@ import java.util.Objects;
  */
 public class AbstractImageHandler implements ImageHandler {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(AbstractImageHandler.class);
+    public static final Log LOGGER = LogFactory.getLog(AbstractImageHandler.class);
 
 
     protected int type;
@@ -115,7 +115,7 @@ public class AbstractImageHandler implements ImageHandler {
 
         int pageTotal = document.getNumberOfPages();
 
-        LOGGER.info("PDF总页数：", pageTotal);
+        LOGGER.info("PDF总页数："+ pageTotal);
 
 
         File outDir = new File(targetPath);
@@ -139,7 +139,7 @@ public class AbstractImageHandler implements ImageHandler {
 
     protected void toConvert(File file, PDFRenderer renderer, int pageTotal, File outDir, int pageName) throws Exception {
         for (int pageIndex = 0; pageIndex < pageTotal; pageIndex++) {
-            LOGGER.info("正在转换第 {} 页", pageIndex);
+            LOGGER.info("正在转换第"+(pageIndex+1)+"页");
 
             pageName = renderAndWriter(file, renderer, outDir, pageName, pageIndex);
 

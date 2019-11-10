@@ -4,6 +4,8 @@ import com.bluedream.pdf.exception.ImageArgsException;
 import com.bluedream.pdf.hanlder.AbstractImageHandler;
 import com.bluedream.pdf.hanlder.CommonImageHandler;
 import com.bluedream.pdf.hanlder.FastImageHandler;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +17,7 @@ import java.io.IOException;
  * @desc:
  */
 public class PdfExportImageNew {
+    public static final Log LOGGER = LogFactory.getLog(AbstractImageHandler.class);
 
 
     /**
@@ -57,11 +60,12 @@ public class PdfExportImageNew {
     public static void main(String[] args) {
 
 
+
         /*String root = "/Users/wenxinliu/Documents/技术琐话/";
         String sourceFile = root + "美团-牟宗彦-美团收单供应链架构演进.pdf";
         String targetPath = root + "Images/美团-牟宗彦-美团收单供应链架构演进";*/
 
-        if (null==args || args.length < 1) {
+        if (null == args || args.length < 1) {
 
             throw new ImageArgsException("请输入PDF文件的完整路径");
 
@@ -83,18 +87,17 @@ public class PdfExportImageNew {
             targetPath = file.getParent() + "/Images";
         }
 
-        System.out.println(sourceFile);
-        System.out.println(targetPath);
+        LOGGER.info("开始生成图片\n源文件 >> " + file.getName() + "\n输出后的路径 >>" + targetPath);
 
 
         // convert(sourceFile,targetPath); //cost 3min
 
         try {
-            System.out.println("执行中，请稍等...");
+            LOGGER.info("执行中，预计执行需要3~5分钟,请稍等...");
             convertFast(sourceFile, targetPath);
-            System.out.println("执行完成,图片输出路径在：" + targetPath);
+            LOGGER.info("执行完成,图片输出路径在：" + targetPath);
         } catch (Exception e) {
-            System.out.println("执行异常:" + e.getMessage());
+            LOGGER.info("执行异常:" + e.getMessage());
 
         }
 

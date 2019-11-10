@@ -8,13 +8,14 @@ package com.bluedream.pdf.exception;
 public class ImageException extends RuntimeException {
 
 
-    protected String message;
 
 
-    public ImageException(){}
+
+    public ImageException(){super();}
 
     public ImageException(String message) {
-        this.message = message;
+        super(message);
+
 
     }
 }

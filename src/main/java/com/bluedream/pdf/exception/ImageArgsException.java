@@ -9,7 +9,7 @@ public class ImageArgsException extends  ImageException {
 
 
     public ImageArgsException(String message) {
-        this.message = message;
+       super(message);
 
     }
 

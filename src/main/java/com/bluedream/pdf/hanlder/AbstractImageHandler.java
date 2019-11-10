@@ -114,6 +114,7 @@ public class AbstractImageHandler implements ImageHandler {
         PDFRenderer renderer = new PDFRenderer(document);
 
         int pageTotal = document.getNumberOfPages();
+
         LOGGER.info("PDF总页数：", pageTotal);
 
 

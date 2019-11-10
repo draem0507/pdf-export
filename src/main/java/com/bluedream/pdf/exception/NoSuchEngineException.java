@@ -9,7 +9,7 @@ public class NoSuchEngineException extends  ImageException {
 
 
     public NoSuchEngineException(String message) {
-        this.message = message;
+       super(message);
 
     }
 }
